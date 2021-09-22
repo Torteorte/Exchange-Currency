@@ -1,0 +1,35 @@
+.formSelect {
+    position: relative;
+    margin: 15px;
+    text-align: center;
+}
+
+.formSelect select {
+    margin-left: 10px;
+    padding: 10px 10px;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /*appearance: none;*/
+    font-size: 1rem;
+    color: #444;
+    outline: none;
+}
+
+.formSelect select:active {
+    border: 1px solid lightskyblue;
+}
+
+/*.formSelect:after {*/
+/*    content: "";*/
+/*    display: block;*/
+/*    border-style: solid;*/
+/*    border-width: 6px 5px 0 5px;*/
+/*    border-color: #000 transparent transparent transparent;*/
+/*    pointer-events: none;*/
+/*    position: absolute;*/
+/*    top: -0.5rem;*/
+/*    right: 1rem;*/
+/*    z-index: 1;*/
+/*    margin-top: -3px;*/
+/*}*/
