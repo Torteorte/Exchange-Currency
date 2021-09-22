@@ -1,40 +1,24 @@
 // import React from "react";
 import styles from './ExchangeTable.module.css'
 
-const ExchangeTable = () => {
+const ExchangeTable = (props) => {
+
+    const listMoneyItems = props.moneyItems.map((obj, index) =>
+        <tr key={obj.cc}>
+            <td>{obj.cc}</td>
+            <td>{obj.rate}</td>
+        </tr>
+    )
 
     return (
         <table className={styles.currencyTable}>
-            <tr>
-                <th>Валюта</th>
-                <th>Покупка</th>
-                <th>Продажа</th>
-            </tr>
-            <tr>
-                <td>UAH</td>
-                <td>1</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>USD</td>
-                <td>27</td>
-                <td>26</td>
-            </tr>
-            <tr>
-                <td>EUR</td>
-                <td>33</td>
-                <td>30</td>
-            </tr>
-            <tr>
-                <td>PLN</td>
-                <td>7</td>
-                <td>6.5</td>
-            </tr>
-            <tr>
-                <td>RUB</td>
-                <td>3</td>
-                <td>2.5</td>
-            </tr>
+            <tbody>
+                <tr>
+                    <th>Валюта</th>
+                    <th>Курс</th>
+                </tr>
+                {listMoneyItems}
+            </tbody>
         </table>
     )
 }
