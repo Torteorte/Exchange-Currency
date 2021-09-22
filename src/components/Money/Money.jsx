@@ -23,14 +23,14 @@ const Money = () => {
     React.useEffect(() => {
         axios.get('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')
             .then((response) => {
-                setMoneyItems(response.data.slice(0, 10));
+                setMoneyItems(response.data);
             });
     }, []);
 
     return (
         <main className={styles.mainContainer}>
             <SelectCurrency currency={currency} />
-            <ExchangeTable moneyItems={moneyItems} />
+            <ExchangeTable moneyItems={moneyItems} currency={currency} />
         </main>
     )
 }

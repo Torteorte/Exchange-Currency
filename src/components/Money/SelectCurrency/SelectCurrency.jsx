@@ -3,7 +3,7 @@ import styles from './SelectCurrency.module.css'
 
 const SelectCurrency = (props) => {
 
-    let listCurrency = props.currency.map((obj, index) =>
+    const listCurrency = props.currency.map((obj) =>
         <option key={obj.id} value={obj.name}>{obj.name}</option>
     )
 

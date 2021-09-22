@@ -3,7 +3,9 @@ import styles from './ExchangeTable.module.css'
 
 const ExchangeTable = (props) => {
 
-    const listMoneyItems = props.moneyItems.map((obj, index) =>
+    const resultArrayMoney = props.moneyItems.filter(item => props.currency.map((obj) => obj.name).includes(item.cc))
+
+    const listMoneyItems = resultArrayMoney.map((obj) =>
         <tr key={obj.cc}>
             <td>{obj.cc}</td>
             <td>{obj.rate}</td>
