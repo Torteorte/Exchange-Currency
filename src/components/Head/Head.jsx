@@ -1,5 +1,5 @@
-// import React from "react";
-import styles from './Head.module.css'
+import React from "react";
+import styles from './Head.module.scss'
 
 const Head = () => {
 
