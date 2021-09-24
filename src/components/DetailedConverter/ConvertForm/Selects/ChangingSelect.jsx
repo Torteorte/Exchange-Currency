@@ -1,31 +1,51 @@
-import React from "react";
-import styles from "./Select.module.scss"
-import ListCurrency from "../../../common/ListCurrency";
-import {setPairExchange} from "../../../../redux/pairConversion_reducer";
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import SelectCurrencyList from '../../../../common/components/SelectCurrencyList';
+import { excludesKeysForInput } from '../../../../common/utils/utils';
+import {
+  StyledContainer,
+  StyledInput,
+  StyledLabel,
+  StyledSelect
+} from './styled';
 
 const ChangingSelect = (props) => {
+  const {
+    currencyReducer: { selectedCurrency }
+  } = useSelector((store) => store);
 
-    const changingCurrency = (e) => {
-        let body = e.target.value;
-        props.changingCurrency(body);
-    }
+  const changingCurrency = (e) => {
+    let { value } = e.target;
+    props.changingCurrency(value);
+  };
 
-    const onChangingInput = (e) => {
-        let body = e.target.value;
-        props.onChangingInput(body);
-    }
+  const onChangingInput = (e) => {
+    let { value } = e.target;
+    props.onChangingInput(value);
+  };
 
-    return (
-        <div className={styles.changing}>
-            <label htmlFor="changing">Меняю:</label>
-            <select name="currencyChanging" id="currencyChanging" onChange={changingCurrency} value={props.valueSelect}>
-                <ListCurrency />
-            </select>
-            <input type="number" name="changing" value={props.changingInput}
-                   onChange={onChangingInput}
-            />
-        </div>
-    )
-}
+  return (
+    <StyledContainer>
+      <StyledLabel htmlFor="changing">Меняю:</StyledLabel>
+      <StyledSelect
+        name="currencyChanging"
+        id="currencyChanging"
+        onChange={changingCurrency}
+        value={selectedCurrency}
+      >
+        <SelectCurrencyList />
+      </StyledSelect>
+      <StyledInput
+        type="number"
+        name="changing"
+        min="0"
+        value={props.changingInput}
+        onChange={onChangingInput}
+        onKeyPress={excludesKeysForInput}
+      />
+    </StyledContainer>
+  );
+};
 
-export default ChangingSelect
+export default ChangingSelect;

@@ -1,30 +1,51 @@
-import React from "react";
-import styles from "./Select.module.scss"
-import ListCurrency from "../../../common/ListCurrency";
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import SelectCurrencyList from '../../../../common/components/SelectCurrencyList';
+import { excludesKeysForInput } from '../../../../common/utils/utils';
+import {
+  StyledContainer,
+  StyledInput,
+  StyledLabel,
+  StyledSelect
+} from './styled';
 
 const ChangingSelect = (props) => {
+  const {
+    pairConversion: { getCurrency }
+  } = useSelector((store) => store);
 
-    const getCurrency = (e) => {
-        let body = e.target.value;
-        props.getCurrency(body);
-    }
+  const onGetCurrency = (e) => {
+    let { value } = e.target;
+    props.getCurrency(value);
+  };
 
-    const onGetInput = (e) => {
-        let body = e.target.value;
-        props.onGetInput(body);
-    }
+  const onGetInput = (e) => {
+    let { value } = e.target;
+    props.onGetInput(value);
+  };
 
-    return (
-        <div className={styles.get}>
-            <label htmlFor="get">Получаю:</label>
-            <select name="currencyGet" id="currencyGet" onChange={getCurrency} value={props.valueSelect}>
-                <ListCurrency />
-            </select>
-            <input type="number" name="get" value={props.getInput}
-                   onChange={onGetInput}
-            />
-        </div>
-    )
-}
+  return (
+    <StyledContainer>
+      <StyledLabel htmlFor="get">Получаю:</StyledLabel>
+      <StyledSelect
+        name="currencyGet"
+        id="currencyGet"
+        onChange={onGetCurrency}
+        value={getCurrency}
+      >
+        <SelectCurrencyList />
+      </StyledSelect>
+      <StyledInput
+        type="number"
+        name="get"
+        min="0"
+        value={props.getInput}
+        onChange={onGetInput}
+        onKeyPress={excludesKeysForInput}
+      />
+    </StyledContainer>
+  );
+};
 
-export default ChangingSelect
+export default ChangingSelect;

@@ -1,29 +1,19 @@
-import React from "react";
-import styles from './Head.module.scss'
+import React from 'react';
+
+import { formatDate } from '../../common/utils/utils';
+import { StyledH1, StyledHeader, StyledParagraph } from './styled';
 
 const Head = () => {
+  const dateToday = new Date();
 
-    const dateToday = new Date()
+  return (
+    <StyledHeader>
+      <StyledH1>Конвертер валют</StyledH1>
+      <StyledParagraph>
+        <time>{formatDate(dateToday)}</time>
+      </StyledParagraph>
+    </StyledHeader>
+  );
+};
 
-    function formatDate(date) {
-        let dd = date.getDate();
-        if (dd < 10) dd = '0' + dd;
-
-        let mm = date.getMonth() + 1;
-        if (mm < 10) mm = '0' + mm;
-
-        let yy = date.getFullYear() % 100;
-        if (yy < 10) yy = '0' + yy;
-
-        return dd + '.' + mm + '.' + yy;
-    }
-
-    return (
-            <header className={styles.head}>
-                <h1>Конвертер валют</h1>
-                <p><time>{formatDate(dateToday)}</time></p>
-            </header>
-        )
-}
-
-export default Head
+export default Head;

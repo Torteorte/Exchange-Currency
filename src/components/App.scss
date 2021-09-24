@@ -20,3 +20,19 @@ body {
 .mainContainer {
   background-color: white;
 }
+
+@media screen and (max-width: 450px) {
+
+  body {
+    margin: 10px;
+  }
+
+  .money-converter-container {
+    width: 100%;
+    margin: 20px auto;
+
+    table {
+      width: 100%;
+    }
+  }
+}
