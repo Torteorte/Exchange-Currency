@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 
-import ChangePage from '../../common/components/ChangePage';
-import ConvertForm from './ConvertForm/ConvertForm';
+import { ConvertForm } from './ConvertForm/ConvertForm';
+import { ChangePage } from '../../common/components/ChangePage';
 
-const DetailedConverter = () => {
+export const DetailedConverter = () => {
   return (
     <Fragment>
       <ConvertForm />
@@ -11,5 +11,3 @@ const DetailedConverter = () => {
     </Fragment>
   );
 };
-
-export default DetailedConverter;

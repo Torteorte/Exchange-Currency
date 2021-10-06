@@ -1,23 +1,14 @@
+import { StyledForm } from './styled';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { setPairExchange } from '../thunk';
+import { changeCurrencyAC } from '../../GeneralConverter/action';
+import { getCurrencyAC, getInputAC, updateChangingInputAC } from '../action';
 
-import GetSelect from './Selects/GetSelect';
-import ChangingSelect from './Selects/ChangingSelect';
+import { GetSelect } from './Selects/GetSelect';
+import { ChangingSelect } from './Selects/ChangingSelect';
 
-import { changeCurrencyAC } from '../../../redux/currencyReducer/action';
-import {
-  getCurrencyAC,
-  getInputAC,
-  updateChangingInputAC
-} from '../../../redux/pairConversionReducer/action';
-import { setPairExchange } from '../../../redux/pairConversionReducer/thunk';
-
-const StyledForm = styled.form`
-  margin: 20px auto 10px;
-`;
-
-const DetailedConverter = () => {
+export const ConvertForm = () => {
   const dispatch = useDispatch();
   const {
     pairConversion: { pairExchange, getCurrency, changingInput, getInput },
@@ -61,5 +52,3 @@ const DetailedConverter = () => {
     </StyledForm>
   );
 };
-
-export default DetailedConverter;

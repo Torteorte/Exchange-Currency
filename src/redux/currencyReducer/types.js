@@ -1,3 +1,0 @@
-export const SELECT_CURRENCY = 'SELECT_CURRENCY';
-export const SET_CURRENCY_ITEMS = 'SET_CURRENCY_ITEMS';
-export const SET_LOADED = 'SET_LOADED';

@@ -1,17 +1,18 @@
-import React from 'react';
+import { StyledContainer, StyledMainContainer } from './styled';
 import './App.scss';
+import React from 'react';
+import { ROUTES } from '../common/constants/routes';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
-import { ROUTES } from '../common/Routes/Routes';
-import DetailedConverter from './DetailedConverter/DetailedConverter';
 import Head from './Head/Head.jsx';
-import GeneralConverter from './GeneralConverter/GeneralConverter.jsx';
+import { GeneralConverter } from './GeneralConverter';
+import { DetailedConverter } from './DetailedConverter/index';
 
-function App() {
+export function App() {
   return (
-    <div className="money-converter-container">
+    <StyledContainer>
       <Head />
-      <main className="mainContainer">
+      <StyledMainContainer>
         <BrowserRouter>
           <Switch>
             <Route exact path="/">
@@ -25,9 +26,7 @@ function App() {
             </Route>
           </Switch>
         </BrowserRouter>
-      </main>
-    </div>
+      </StyledMainContainer>
+    </StyledContainer>
   );
 }
-
-export default App;

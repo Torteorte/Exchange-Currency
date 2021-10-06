@@ -1,16 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-
-import SelectCurrencyList from '../../../../common/components/SelectCurrencyList';
-import { excludesKeysForInput } from '../../../../common/utils/utils';
 import {
   StyledContainer,
   StyledInput,
   StyledLabel,
   StyledSelect
 } from './styled';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { excludesKeysForInput } from '../../../../common/utils/utils';
 
-const ChangingSelect = (props) => {
+import SelectCurrencyList from '../../../../common/components/SelectCurrencyList';
+
+export const ChangingSelect = (props) => {
   const {
     currencyReducer: { selectedCurrency }
   } = useSelector((store) => store);
@@ -47,5 +47,3 @@ const ChangingSelect = (props) => {
     </StyledContainer>
   );
 };
-
-export default ChangingSelect;

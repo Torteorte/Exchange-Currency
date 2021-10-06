@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { formatDate } from '../../common/utils/utils';
 import { StyledH1, StyledHeader, StyledParagraph } from './styled';
 

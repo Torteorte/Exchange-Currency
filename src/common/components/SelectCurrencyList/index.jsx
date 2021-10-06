@@ -1,12 +1,7 @@
 import React from 'react';
-
-import { useSelector } from 'react-redux';
+import { neededCurrency } from '../../utils/utils';
 
 const SelectCurrencyList = () => {
-  const neededCurrency = useSelector(
-    ({ currencyReducer }) => currencyReducer.neededCurrency
-  );
-
   const selectCurrencyList = neededCurrency.map((obj) => (
     <option key={obj.id} value={obj.name}>
       {obj.name}

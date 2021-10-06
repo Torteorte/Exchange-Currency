@@ -15,31 +15,31 @@ let initialState = {
 let pairConversionReducer = (state = initialState, action) => {
   switch (action.type) {
     case SELECT_CURRENCY_GET:
-      localStorage.setItem('getCurrency', action.payload);
+      localStorage.setItem('getCurrency', action.payload.getItemCurrency);
       return {
         ...state,
-        getCurrency: localStorage.getItem('getCurrency')
+        getCurrency: action.payload.getItemCurrency
       };
 
     case SET_PAIR_EXCHANGE:
       return {
         ...state,
-        pairExchange: action.payload,
-        getInput: state.changingInput * action.payload
+        pairExchange: action.payload.items,
+        getInput: state.changingInput * action.payload.items
       };
 
     case SET_INPUT_CHANGING:
       return {
         ...state,
-        changingInput: action.payload,
-        getInput: action.payload * state.pairExchange
+        changingInput: action.payload.numberChange,
+        getInput: action.payload.numberChange * state.pairExchange
       };
 
     case SET_INPUT_GET:
       return {
         ...state,
-        changingInput: action.payload / state.pairExchange,
-        getInput: action.payload
+        changingInput: action.payload.numberGet / state.pairExchange,
+        getInput: action.payload.numberGet
       };
 
     default:

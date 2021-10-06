@@ -1,8 +1,8 @@
 import thunkMiddleware from 'redux-thunk';
 import { applyMiddleware, combineReducers, createStore, compose } from 'redux';
 
-import currencyReducer from './currencyReducer/reducer';
-import pairConversion from './pairConversionReducer/reducer';
+import currencyReducer from '../components/GeneralConverter/reducer';
+import pairConversion from '../components/DetailedConverter/reducer';
 
 let reducers = combineReducers({
   currencyReducer,

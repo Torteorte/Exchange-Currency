@@ -1,12 +1,19 @@
+import { StyledForm, StyledSelect } from './styled';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeCurrencyAC } from '../action';
 
 import SelectCurrencyList from '../../../common/components/SelectCurrencyList';
-import { StyledForm, StyledSelect } from './styled';
 
-const SelectCurrency = (props) => {
+export const SelectCurrency = () => {
+  const dispatch = useDispatch();
+  const { selectedCurrency } = useSelector(
+    ({ currencyReducer }) => currencyReducer
+  );
+
   const updateCurrency = (e) => {
     const { value } = e.target;
-    props.handleUpdateCurrency(value);
+    dispatch(changeCurrencyAC(value));
   };
 
   return (
@@ -16,12 +23,10 @@ const SelectCurrency = (props) => {
         name="currency"
         id="currency"
         onChange={updateCurrency}
-        value={props.valueSelect}
+        value={selectedCurrency}
       >
         <SelectCurrencyList />
       </StyledSelect>
     </StyledForm>
   );
 };
-
-export default SelectCurrency;

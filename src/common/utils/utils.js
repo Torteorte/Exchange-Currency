@@ -18,3 +18,18 @@ export const excludesKeysForInput = (e) => {
     e.preventDefault();
   }
 };
+
+export const neededCurrency = [
+  { id: 1, name: 'UAH' },
+  { id: 2, name: 'USD' },
+  { id: 3, name: 'EUR' },
+  { id: 4, name: 'PLN' },
+  { id: 5, name: 'RUB' },
+  { id: 6, name: 'BYN' },
+  { id: 7, name: 'GBP' },
+  { id: 8, name: 'ILS' },
+  { id: 9, name: 'CNY' },
+  { id: 10, name: 'JPY' }
+];
+
+const b = 2;

@@ -5,22 +5,22 @@ import {
   SET_PAIR_EXCHANGE
 } from './types';
 
-export const getCurrencyAC = (getItem) => ({
+export const getCurrencyAC = (getItemCurrency) => ({
   type: SELECT_CURRENCY_GET,
-  payload: getItem
+  payload: { getItemCurrency }
 });
 
 export const setPairExchangeAC = (items) => ({
   type: SET_PAIR_EXCHANGE,
-  payload: items
+  payload: { items }
 });
 
 export const updateChangingInputAC = (numberChange) => ({
   type: SET_INPUT_CHANGING,
-  payload: numberChange
+  payload: { numberChange }
 });
 
 export const getInputAC = (numberGet) => ({
   type: SET_INPUT_GET,
-  payload: numberGet
+  payload: { numberGet }
 });

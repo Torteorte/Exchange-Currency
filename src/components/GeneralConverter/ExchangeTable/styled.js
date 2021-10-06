@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const StyledTable = styled.table`
   width: 300px;
@@ -31,4 +32,14 @@ export const StyledTd = styled.td`
   font-weight: 300;
   padding: 10px;
   min-height: 45px;
+`;
+
+export const StyledLink = styled(NavLink)`
+  padding: 10px;
+  color: inherit;
+  text-decoration: none;
+
+  :hover {
+    font-weight: 500;
+  }
 `;
