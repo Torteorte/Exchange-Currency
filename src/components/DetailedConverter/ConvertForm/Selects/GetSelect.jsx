@@ -5,29 +5,33 @@ import {
   StyledSelect
 } from './styled';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCurrencyAC, getInputAC } from '../../action';
 import { excludesKeysForInput } from '../../../../common/utils/utils';
 
 import SelectCurrencyList from '../../../../common/components/SelectCurrencyList';
 
-export const GetSelect = (props) => {
+export const GetSelect = () => {
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
   const {
-    pairConversion: { getCurrency }
+    pairConversion: { getCurrency, getInput }
   } = useSelector((store) => store);
 
   const onGetCurrency = (e) => {
-    let { value } = e.target;
-    props.getCurrency(value);
+    const { value } = e.target;
+    dispatch(getCurrencyAC(value));
   };
 
   const onGetInput = (e) => {
-    let { value } = e.target;
-    props.onGetInput(value);
+    const { value } = e.target;
+    dispatch(getInputAC(value));
   };
 
   return (
     <StyledContainer>
-      <StyledLabel htmlFor="get">Получаю:</StyledLabel>
+      <StyledLabel htmlFor="get">{t('detailed.get')}</StyledLabel>
       <StyledSelect
         name="currencyGet"
         id="currencyGet"
@@ -40,7 +44,7 @@ export const GetSelect = (props) => {
         type="number"
         name="get"
         min="0"
-        value={props.getInput}
+        value={getInput}
         onChange={onGetInput}
         onKeyPress={excludesKeysForInput}
       />

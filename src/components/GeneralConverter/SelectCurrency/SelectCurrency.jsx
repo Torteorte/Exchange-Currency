@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeCurrencyAC } from '../action';
 
 import SelectCurrencyList from '../../../common/components/SelectCurrencyList';
+import { useTranslation } from 'react-i18next';
 
 export const SelectCurrency = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { selectedCurrency } = useSelector(
     ({ currencyReducer }) => currencyReducer
   );
@@ -18,7 +20,7 @@ export const SelectCurrency = () => {
 
   return (
     <StyledForm>
-      <label htmlFor="currency">Выберите валюту</label>
+      <label htmlFor="currency">{t('select')}</label>
       <StyledSelect
         name="currency"
         id="currency"

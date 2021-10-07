@@ -6,14 +6,16 @@ import {
   StyledTr
 } from './styled';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { changeCurrencyAC } from '../action';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { ROUTES } from '../../../common/constants/routes';
 
 import LoadCurrency from '../../../common/components/LoadCurrency';
 
 export const ExchangeTable = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { actualCurrencyList, isLoaded } = useSelector(
     ({ currencyReducer }) => currencyReducer
   );
@@ -22,8 +24,8 @@ export const ExchangeTable = () => {
     <StyledTable>
       <tbody>
         <StyledTr>
-          <StyledTh>Валюта</StyledTh>
-          <StyledTh>Курс</StyledTh>
+          <StyledTh>{t('table.th1')}</StyledTh>
+          <StyledTh>{t('table.th2')}</StyledTh>
         </StyledTr>
         {isLoaded
           ? actualCurrencyList.map((obj) => (

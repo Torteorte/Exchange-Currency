@@ -17,7 +17,17 @@ export const StyledH1 = styled.h1`
   font-size: 24px;
 `;
 
-export const StyledParagraph = styled.p`
+export const StyledContainer = styled.div`
   margin: 0 10px;
-  font-size: 20px;
+  font-size: 16px;
+  text-align: center;
+`;
+
+export const StyledButtons = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const StyledButton = styled.button`
+  margin: auto;
 `;

@@ -31,5 +31,3 @@ export const neededCurrency = [
   { id: 9, name: 'CNY' },
   { id: 10, name: 'JPY' }
 ];
-
-const b = 2;

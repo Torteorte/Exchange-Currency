@@ -5,29 +5,34 @@ import {
   StyledSelect
 } from './styled';
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateChangingInputAC } from '../../action';
+import { changeCurrencyAC } from '../../../GeneralConverter/action';
 import { excludesKeysForInput } from '../../../../common/utils/utils';
 
 import SelectCurrencyList from '../../../../common/components/SelectCurrencyList';
 
-export const ChangingSelect = (props) => {
+export const ChangingSelect = () => {
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
   const {
-    currencyReducer: { selectedCurrency }
+    currencyReducer: { selectedCurrency, changingInput }
   } = useSelector((store) => store);
 
   const changingCurrency = (e) => {
-    let { value } = e.target;
-    props.changingCurrency(value);
+    const { value } = e.target;
+    dispatch(changeCurrencyAC(value));
   };
 
   const onChangingInput = (e) => {
-    let { value } = e.target;
-    props.onChangingInput(value);
+    const { value } = e.target;
+    dispatch(updateChangingInputAC(value));
   };
 
   return (
     <StyledContainer>
-      <StyledLabel htmlFor="changing">Меняю:</StyledLabel>
+      <StyledLabel htmlFor="changing">{t('detailed.changing')}</StyledLabel>
       <StyledSelect
         name="currencyChanging"
         id="currencyChanging"
@@ -40,7 +45,7 @@ export const ChangingSelect = (props) => {
         type="number"
         name="changing"
         min="0"
-        value={props.changingInput}
+        value={changingInput}
         onChange={onChangingInput}
         onKeyPress={excludesKeysForInput}
       />
