@@ -1,4 +1,5 @@
 import {
+  SAGA_SET_PAIR_EXCHANGE,
   SELECT_CURRENCY_GET,
   SET_INPUT_CHANGING,
   SET_INPUT_GET,
@@ -23,4 +24,9 @@ export const updateChangingInputAC = (numberChange) => ({
 export const getInputAC = (numberGet) => ({
   type: SET_INPUT_GET,
   payload: { numberGet }
+});
+
+export const asyncSetPairExchange = (itemSelect, itemGet) => ({
+  type: SAGA_SET_PAIR_EXCHANGE,
+  payload: { itemSelect, itemGet }
 });

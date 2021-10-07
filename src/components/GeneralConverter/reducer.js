@@ -25,7 +25,7 @@ let currencyReducer = (state = initialState, action) => {
     case SET_LOADED:
       return {
         ...state,
-        isLoaded: action.payload
+        isLoaded: action.payload.bool
       };
 
     default:

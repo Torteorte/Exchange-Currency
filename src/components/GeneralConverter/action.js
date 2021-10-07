@@ -1,4 +1,9 @@
-import { SELECT_CURRENCY, SET_CURRENCY_ITEMS, SET_LOADED } from './types';
+import {
+  SELECT_CURRENCY,
+  SET_CURRENCY_ITEMS,
+  SET_LOADED,
+  SAGA_SET_CURRENCY_ITEMS
+} from './types';
 
 export const changeCurrencyAC = (currency) => ({
   type: SELECT_CURRENCY,
@@ -10,4 +15,9 @@ export const setCurrencyAC = (items) => ({
   payload: { items }
 });
 
-export const setLoaded = (payload) => ({ type: SET_LOADED, payload });
+export const setLoaded = (bool) => ({ type: SET_LOADED, payload: { bool } });
+
+export const asyncSetCurrency = (item) => ({
+  type: SAGA_SET_CURRENCY_ITEMS,
+  payload: { item }
+});

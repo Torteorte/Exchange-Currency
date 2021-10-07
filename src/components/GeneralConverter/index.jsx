@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import { setCurrency } from './thunk';
+import { useTranslation } from 'react-i18next';
+import { asyncSetCurrency } from './action';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { SelectCurrency } from './SelectCurrency/SelectCurrency';
 import { ExchangeTable } from './ExchangeTable/ExchangeTable';
 import { ChangePage } from '../../common/components/ChangePage';
-import { useTranslation } from 'react-i18next';
 
 export const GeneralConverter = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export const GeneralConverter = () => {
   );
 
   React.useEffect(() => {
-    dispatch(setCurrency(selectedCurrency));
+    dispatch(asyncSetCurrency(selectedCurrency));
   }, [dispatch, selectedCurrency]);
 
   return (
